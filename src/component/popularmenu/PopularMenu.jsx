@@ -10,7 +10,7 @@ const PopularMenu = () => {
   return (
     <section className='mb-10'>
       <SectionTitle subHeading='Popular Item' heading='From Our Menu'/>
-      <MenuCategory items={popular}/>
+      <MenuCategory items={popular} title={'salads'}/>
 
       <div className='text-center my-20'>
         <button className='btn btn-outline border-0 border-b-4'>View Full Menu</button>

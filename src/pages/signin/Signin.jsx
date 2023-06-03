@@ -1,15 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha'; 
 import { AuthContext } from '../../provider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import SocialLogin from '../shared/sociallogin/SocialLogin';
 
 const Signin = () => {
 
   const [disabled, setDisabled] = useState(true); 
   const {logIn} = useContext(AuthContext); 
   
+  const navigate = useNavigate(); 
+  const location = useLocation(); 
+  
+  const from = location.state?.from?.pathname || '/'; 
+
   useEffect(() => {
     loadCaptchaEnginge(6); 
   }, [])
@@ -33,6 +39,7 @@ const Signin = () => {
             popup: 'animate__animated animate__fadeOutUp'
           }
         })
+        navigate(from, {replace: true});
       })
   }
 
@@ -75,10 +82,11 @@ const Signin = () => {
                 <input onBlur={handleValidateCaptcha} type="text" name='captcha' placeholder="type the captcha above" className="input input-bordered" />
               </div>
               <div className="form-control mt-6">
-                <input disabled={disabled} className="btn btn-primary" type="submit" value="Signin" />
+                <input disabled={false} className="btn btn-primary" type="submit" value="Signin" />
               </div>
             </form>
             <p><small>New Here? <Link to='/signup'>Create an account</Link></small></p>
+            <SocialLogin/>
           </div>
         </div>
       </div>
