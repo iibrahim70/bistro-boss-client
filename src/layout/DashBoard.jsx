@@ -9,8 +9,6 @@ import useAdmin from '../hooks/useAdmin';
 const DashBoard = () => {
 
   const [cart] = UseCart(); 
-  // Todo: load data from the server to have dynamic isAdmin based on data 
-  // const isAdmin = true;
   const [isAdmin] = useAdmin();  
 
   return (
@@ -18,7 +16,7 @@ const DashBoard = () => {
       <Helmet title='Bistro Boss || Dashboard' />
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content flex flex-col items-center justify-center bg-red-300">
           {/* <!-- Page content here --> */}
           <Outlet/>
           <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
@@ -31,8 +29,8 @@ const DashBoard = () => {
             {
               isAdmin? <>
                 <li><NavLink to='/'><FaHome /> Admin Home</NavLink></li>
-                <li><NavLink to='/dashboard/reservations'><FaUtensils /> Add Items</NavLink></li>
-                <li><NavLink to='/dashboard/payment-history'><FaWallet /> Manage Items</NavLink></li>
+                <li><NavLink to='/dashboard/add-item'><FaUtensils /> Add Items</NavLink></li>
+                <li><NavLink to='/dashboard/manage-items'><FaWallet /> Manage Items</NavLink></li>
                 <li><NavLink to='/dashboard/payment-history'><FaBook /> Manage Bookings</NavLink></li>
                 <li><NavLink to='/dashboard/all-users'><FaUsers /> All Users</NavLink></li>
                 

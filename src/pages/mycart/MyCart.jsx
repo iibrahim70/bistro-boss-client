@@ -39,7 +39,7 @@ const MyCart = () => {
   }
 
   return (
-    <div className='ps-10 mt-20 w-full h-[-webkit-fill-available] overflow-x-hidden'>
+    <div className='ps-10 mt-20 w-full h-full '>
       <Helmet title='Bistro Boss || My Cart' />
       <div className='flex justify-evenly items-center h-10 font-semibold uppercase'>
         <h3 className='text-3xl'>Total Items: {cart.length}</h3>

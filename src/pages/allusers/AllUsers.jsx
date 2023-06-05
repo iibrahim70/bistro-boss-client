@@ -50,7 +50,7 @@ const AllUsers = () => {
   }
 
   return (
-    <div className='ps-10 mt-20 w-full h-[-webkit-fill-available] overflow-x-hidden'>
+    <div className='ps-10 mt-20 w-full h-full'>
       <Helmet title='Bistro Boss || All Users' />
 
       <h3 className='text-3xl font-semibold'>Total Users: {users.length}</h3>
